@@ -37,7 +37,8 @@
     export default{
         data(){
             return{
-                products: []
+                products: [],
+                output: ''
             }
         },
         methods:{
@@ -45,8 +46,9 @@
                 var productFormData = new FormData(document.getElementById("productForm"));
                 axios.post('/api/home/product_create', productFormData).then(response => {
                     this.products = response.data;
-                console.log(response.data);
-                })
+                    flash('Product Created Successfully', 'success');
+                    console.log(response.data);
+                });
             }
         },
         mounted(){

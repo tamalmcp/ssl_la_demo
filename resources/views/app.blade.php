@@ -12,6 +12,7 @@
         <div id="app">
             <app-header></app-header>
             <!-- <side-bar></side-bar> -->
+            <flash message=""></flash>
             <router-view></router-view>
         </div>
 
