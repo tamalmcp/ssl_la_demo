@@ -8,6 +8,7 @@ import Home from '../pages/home.vue';
 import CategoryList from '../pages/category/index.vue';
 import ProductList from '../pages/products/index.vue';
 import CreateProduct from '../pages/products/create.vue';
+import ProductView from '../pages/products/view.vue';
 import UserList from '../pages/users/index.vue';
 import UserView from '../pages/users/view.vue';
 
@@ -18,32 +19,37 @@ const routes = new VueRouter({
         {
             path: '/home',
             component: Home,
-            name: 'home',
+            name: 'home'
         },
         {
             path: '/home/product',
             component: ProductList,
-            name: 'product-list',
+            name: 'product-list'
+        },
+        {
+            path: '/home/product/:id',
+            component: ProductView,
+            name: 'product-view'
         },
         {
             path: '/home/product/create',
             component: CreateProduct,
-            name: 'create-product',
+            name: 'create-product'
         },
         {
             path: '/home/category',
             component: CategoryList,
-            name: 'category-list',
+            name: 'category-list'
         },
         {
             path: '/home/users',
             component: UserList,
-            name: 'user-list',
+            name: 'user-list'
         },
         {
             path: '/home/user/:id',
             component: UserView,
-            name: 'user-view',
+            name: 'user-view'
         }
     ]
 });

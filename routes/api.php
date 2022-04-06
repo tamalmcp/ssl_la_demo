@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/home/users', [App\Http\Controllers\HomeController::class, 'index'])->name('home/users');
 Route::get('/home/user-detail/{id}', [App\Http\Controllers\HomeController::class, 'view']);
 Route::get('/home/products', [App\Http\Controllers\HomeController::class, 'products']);
+Route::get('/home/product-detail/{id}', [App\Http\Controllers\HomeController::class, 'product_view']);
 Route::post('/home/product_create', [App\Http\Controllers\HomeController::class, 'product_create']);
 Route::delete('/home/delete_product/{id}', [App\Http\Controllers\HomeController::class, 'delete_product']);
