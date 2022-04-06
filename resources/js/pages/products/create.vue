@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 offset-3">
-                                <form id = "productForm" @submit.prevent = "createProduct">
+                                <form id = "productForm" @submit.prevent = "createProduct" ref="refCreateProd">
                                     <div class="form-group">
                                         <label for="">Product Name</label>
                                         <input type="text" class="form-control" placeholder="Product Name" name="name">
@@ -37,8 +37,7 @@
     export default{
         data(){
             return{
-                products: [],
-                output: ''
+                products: []
             }
         },
         methods:{
@@ -46,8 +45,8 @@
                 var productFormData = new FormData(document.getElementById("productForm"));
                 axios.post('/api/home/product_create', productFormData).then(response => {
                     this.products = response.data;
+                    this.$refs.refCreateProd.reset();
                     flash('Product Created Successfully', 'success');
-                    console.log(response.data);
                 });
             }
         },
