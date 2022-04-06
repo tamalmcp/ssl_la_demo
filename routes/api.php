@@ -22,3 +22,4 @@ Route::get('/home/users', [App\Http\Controllers\HomeController::class, 'index'])
 Route::get('/home/user-detail/{id}', [App\Http\Controllers\HomeController::class, 'view']);
 Route::get('/home/products', [App\Http\Controllers\HomeController::class, 'products']);
 Route::post('/home/product_create', [App\Http\Controllers\HomeController::class, 'product_create']);
+Route::delete('/home/delete_product/{id}', [App\Http\Controllers\HomeController::class, 'delete_product']);

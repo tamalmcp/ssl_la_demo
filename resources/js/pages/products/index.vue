@@ -23,6 +23,7 @@
                                     <td>{{ product.detail }}</td>
                                     <td>
                                         <router-link :to="{name: 'product-view', params: {id: product.id}}" class="btn btn-primary btn-sm">View</router-link>
+                                        <a href="#" @click.prevent="deleteProduct(product.id)" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -46,6 +47,14 @@
                 axios.get('/api/home/products').then(response => {
                     this.products = response.data;
                 })
+            },
+            deleteProduct(productId){
+                axios.delete('/api/home/delete_product/'+productId).then(response => {
+                    let i = this.products.map(data => data.id).indexOf(productId);
+                    this.products.splice(i, 1)
+
+                    flash('Product Deleted Successfully', 'success');
+                });
             }
         },
         mounted(){

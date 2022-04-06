@@ -43,12 +43,21 @@ class HomeController extends Controller
 
     public function product_create(Request $request)
     {
-//        print_r($request->all());
-        $product = Product::create([
+        Product::create([
             'name' => $request->name,
             'detail' => $request->detail,
         ]);
-//        $request->name = 'Product created Successfully';
         return response()->json('success', 200);
+    }
+
+    public function delete_product($id)
+    {
+        $product_by_id = Product::findOrFail($id);
+        if($product_by_id){
+            $product_by_id->delete();
+            return response()->json('success', 200);
+        }else{
+            return response()->json('failed', 404);
+        }
     }
 }
