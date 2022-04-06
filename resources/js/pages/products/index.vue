@@ -54,6 +54,8 @@
                     this.products.splice(i, 1)
 
                     flash('Product Deleted Successfully', 'success');
+                }).catch(error => {
+                    flash('You are not authorized', 'success');
                 });
             }
         },

@@ -16,6 +16,7 @@ class HomeController extends Controller
     public function __construct()
     {
 //        $this->middleware('auth');
+        $this->middleware('permission:product-delete', ['only' => ['delete_product']]);
     }
 
     /**
@@ -39,6 +40,11 @@ class HomeController extends Controller
     {
         $products = Product::latest()->get();
         return response()->json($products, 200);
+    }
+
+    public function product_view($id){
+        $user = Product::find($id);
+        return response()->json($user, 200);
     }
 
     public function product_create(Request $request)
