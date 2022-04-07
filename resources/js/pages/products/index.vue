@@ -66,8 +66,8 @@
             },
             deleteProduct(productId){
                 axios.delete('/api/home/delete_product/'+productId).then(response => {
-                    let i = this.products.map(data => data.id).indexOf(productId);
-                    this.products.splice(i, 1)
+                let indx = this.products.data.map(data => data.id).indexOf(productId);
+                this.products.data.splice(indx, 1);
 
                     flash('Product Deleted Successfully', 'success');
                 });
