@@ -37,7 +37,8 @@ class HomeController extends Controller
 
     public function products()
     {
-        $products = Product::latest()->get();
+//        $products = Product::latest()->get();
+        $products = Product::paginate(10);
         return response()->json($products, 200);
     }
 
